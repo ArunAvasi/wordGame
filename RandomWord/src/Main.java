@@ -4,6 +4,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -23,15 +24,18 @@ public class Main {
     private static String getRandomWord() throws IOException, JSONException {
         String api_key = "169c08ab92msh0b7fe475c8aa506p19466fjsn1bbfbe410e1a";
         String host = "wordsapiv1.p.rapidapi.com";
+
         URL url = new URL("https://wordsapiv1.p.rapidapi.com/words/?random=true");
         HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+
         urlConnection.setRequestProperty("X-RapidAPI-Key", api_key);
         urlConnection.setRequestProperty("X-RapidAPI-Host", host);
 
         BufferedReader in = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));
-
+        //my reader
         String inputLine;
-        StringBuffer response = new StringBuffer();
+
+        StringBuilder response = new StringBuilder();
         while ((inputLine = in.readLine()) != null) {
             response.append(inputLine);
         }
@@ -40,7 +44,15 @@ public class Main {
         JSONObject obj = new JSONObject(response.toString());
         String word = obj.getString("word");
         String[] words = word.split(" ");
-        return words[0];
+//       System.out.println(obj.toString());
+
+
+
+        return word;
+
+
+
+
 
     }
 
