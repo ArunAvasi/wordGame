@@ -46,10 +46,6 @@ public class Main {
         String[] words = word.split(" ");
         return word;
 
-
-
-
-
     }
 
 
