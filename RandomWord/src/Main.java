@@ -44,7 +44,7 @@ public class Main {
         JSONObject obj = new JSONObject(response.toString());
         String word = obj.getString("word");
         String[] words = word.split(" ");
-        return word;
+        return words[0];
 
         //jai
         
