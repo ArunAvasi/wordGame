@@ -13,7 +13,11 @@ public class Main {
     public static void main(String[] args) {
         try {
             String randomWord = getRandomWord();
-            System.out.println("Random word: " + randomWord);
+            while(randomWord.length()!=5)
+            {
+                randomWord = getRandomWord();
+            }
+            System.out.println(randomWord);
         } catch (IOException e) {
             e.printStackTrace();
         } catch (JSONException e) {
@@ -42,16 +46,11 @@ public class Main {
         in.close();
 
         JSONObject obj = new JSONObject(response.toString());
+
+        System.out.println(obj);
         String word = obj.getString("word");
         String[] words = word.split(" ");
         return word;
-
-        //jai sucks
-        
-
-
-
-
     }
 
 
