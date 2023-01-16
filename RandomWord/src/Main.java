@@ -45,8 +45,6 @@ public class Main {
         String word = obj.getString("word");
         String[] words = word.split(" ");
         return words[0];
-
-        //jai
         
 
 
